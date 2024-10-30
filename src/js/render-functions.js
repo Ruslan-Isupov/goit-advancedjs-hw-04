@@ -41,25 +41,4 @@ function clearMarkup() {
   gallery.innerHTML = '';
 }
 
-// function hide() {
-//   buttonLoad.classList.add('unvisible-button');
-// }
-
-// function show() {
-//   buttonLoad.classList.remove('unvisible-button');
-// }
-
-// function notifySuccess(images) {
-//   if (images.total !== 0) {
-//     Notiflix.Notify.success(`Hooray ! We found ${images.totalHits} images`);
-//   }
-// }
-
-export {
-  // renderExtraImage,
-  renderUserListItems,
-  clearMarkup,
-  // hide,
-  // show,
-  // notifySuccess,
-};
+export { renderUserListItems, clearMarkup };

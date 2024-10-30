@@ -4,6 +4,7 @@
     height: 48px;
     border-radius: 50%;
     margin: 0 auto;
+    margin-top:20px;
     position: relative;
     animation: rotate 1s linear infinite;
 }
@@ -116,20 +117,22 @@ button:hover {
 
 .photo-card {
     width: 360px;
-    border: Mixed solid #808080;
+    height: 200px;
+    border: 1px solid #808080;
 }
 
 img {
-    height: 200px;
+    height: 152px;
     width: 100%;
     object-fit: cover;
 }
 
 .info {
-    margin: 10px;
+    height: 48px;
+    margin: 4px 0;
     display: flex;
     gap: 10px;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .info-item {
@@ -137,7 +140,7 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 4px;
 }
 
 button[type='submit'] {
@@ -147,3 +150,15 @@ button[type='submit'] {
 .unvisible-button {
     display: none;
 }
+
+.load-more{
+    display: none;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 125px;
+      
+        padding: 8px 16px;
+        border-radius: 8px;
+        background: #4E75FF;
+}
+
