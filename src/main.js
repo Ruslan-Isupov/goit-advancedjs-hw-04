@@ -27,6 +27,17 @@ class LoaderService {
   }
 }
 
+function smoothScroll() {
+  const galleryCard = document.querySelector('.photo-card');
+  if (galleryCard) {
+    const cardHeight = galleryCard.getBoundingClientRect().height;
+    window.scrollBy({
+      top: cardHeight * 2,
+      behavior: 'smooth',
+    });
+  }
+}
+
 const loadMoreBtn = new LoaderService(buttonLoad);
 const loader = new LoaderService(load);
 
@@ -35,7 +46,6 @@ form.addEventListener('submit', findListOfPictures);
 async function findListOfPictures(e) {
   e.preventDefault();
   nameQuery = form.elements.searchQuery.value;
-  //   console.log('formbefore', nameQuery, page);
   if (nameQuery === '') {
     iziToast.warning({
       title: 'Alert',
@@ -53,9 +63,7 @@ async function findListOfPictures(e) {
       allCards = 15;
     }
     const images = await searchPictures(nameQuery, page);
-    // console.log('formafter', nameQuery, images, page);
     if (images.total === 0) {
-      //   loadMoreBtn.hide();
       iziToast.warning({
         title: 'Alert',
         message:
@@ -66,6 +74,7 @@ async function findListOfPictures(e) {
       return clearMarkup();
     }
     renderUserListItems(images);
+    smoothScroll();
     loader.hide();
     loadMoreBtn.show();
     buttonLoad.addEventListener('click', loadAdditionalImage);
@@ -83,17 +92,14 @@ async function findListOfPictures(e) {
 }
 
 async function loadAdditionalImage() {
-  //   console.log('btnbefore', nameQuery, page);
   loader.show();
   loadMoreBtn.hide();
   page += 1;
   allCards += 15;
   try {
-    console.log('btnafter', nameQuery, page);
     const images = await searchPictures(nameQuery, page);
     if (images.totalHits <= allCards) {
       renderUserListItems(images);
-      console.log('totalHits', images.totalHits);
       loadMoreBtn.hide();
       loader.hide();
       iziToast.warning({
@@ -108,6 +114,7 @@ async function loadAdditionalImage() {
       return;
     }
     renderUserListItems(images);
+    smoothScroll();
     loader.hide();
     loadMoreBtn.show();
   } catch (error) {
@@ -116,7 +123,6 @@ async function loadAdditionalImage() {
       message: error.message,
       position: 'topRight',
     });
-    // page = 1;
     loadMoreBtn.hide();
     loader.hide();
   }

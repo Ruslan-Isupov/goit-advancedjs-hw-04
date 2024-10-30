@@ -1,16 +1,13 @@
-// import Notiflix from 'notiflix';
-// import { gallery } from './index.js';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-// import { buttonLoad } from './index.js';
 const gallery = document.querySelector('.gallery');
 
 function renderUserListItems(images) {
   const markup = images.hits
     .map(
       image => `
-<div class="photo-card">
+<li class="photo-card">
 <a class="gallery__item"  href="${image.largeImageURL}" >
   <img src="${image.webformatURL}" alt="${image.tags}"  />
   </a>
@@ -29,7 +26,7 @@ function renderUserListItems(images) {
   <b>${image.downloads}</b>
 </p>
   </div>
-</div>`
+</li>`
     )
     .join('');
 

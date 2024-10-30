@@ -108,7 +108,6 @@ button:hover {
 
 .gallery {
     margin: 0 auto;
-    /* padding: 15px 15px 0 15px; */
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
