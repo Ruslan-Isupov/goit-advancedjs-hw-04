@@ -104,7 +104,7 @@ async function loadAdditionalImage() {
       loader.hide();
       iziToast.warning({
         title: 'Alert',
-        message: error.message,
+        message: "We're sorry, but you've reached the end of search results.",
         position: 'topRight',
       });
       allCards = 15;
