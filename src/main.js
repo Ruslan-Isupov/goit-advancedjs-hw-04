@@ -45,7 +45,7 @@ form.addEventListener('submit', findListOfPictures);
 
 async function findListOfPictures(e) {
   e.preventDefault();
-  nameQuery = form.elements.searchQuery.value;
+  nameQuery = form.elements.searchQuery.value.trim();
   if (nameQuery === '') {
     iziToast.warning({
       title: 'Alert',

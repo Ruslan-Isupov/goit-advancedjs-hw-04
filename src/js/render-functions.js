@@ -2,7 +2,7 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const gallery = document.querySelector('.gallery');
-
+const lightbox = new SimpleLightbox('.gallery a');
 function renderUserListItems(images) {
   const markup = images.hits
     .map(
@@ -31,7 +31,7 @@ function renderUserListItems(images) {
     .join('');
 
   gallery.insertAdjacentHTML('beforeend', markup);
-  new SimpleLightbox('.gallery a').refresh();
+  lightbox.refresh();
 }
 
 function clearMarkup() {
