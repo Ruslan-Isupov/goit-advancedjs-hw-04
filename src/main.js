@@ -74,7 +74,6 @@ async function findListOfPictures(e) {
       return clearMarkup();
     }
     renderUserListItems(images);
-    smoothScroll();
     loader.hide();
     loadMoreBtn.show();
     buttonLoad.addEventListener('click', loadAdditionalImage);
